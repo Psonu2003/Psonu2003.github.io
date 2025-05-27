@@ -11,7 +11,7 @@ export default function TestItem2() {
       </h1>
 
       <p className="text-gray-600 dark:text-gray-400 mb-4 text-center">
-        This animation is a resuilt of a perfectly elastic collision between two boxes. Due to their ratio, the number of collisions produce the digits of pi.
+        This animation is a result of a perfectly elastic collision between two boxes. Due to their ratio, the number of collisions produce the digits of pi.
       </p>
 
       {/* Embedded MP4 Video */}
@@ -25,7 +25,7 @@ export default function TestItem2() {
       </div>
 
       <p className="text-sm text-center text-gray-500 dark:text-gray-400 mb-4">
-        This animation demonstrates quantum principles and is a recording of an interactive simulation.
+        This animation shows how the ratio of the two boxes leads to a series of collisions that approximate the digits of pi.
       </p>
 
       <RepoButton repoUrl="https://github.com/Psonu2003/CollisionAnimation" />
