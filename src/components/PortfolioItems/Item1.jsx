@@ -3,7 +3,7 @@ import RepoButton from "../RepoButton";
 export default function TestItem1() {
   return (
     <div
-      className="flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_20px_5px_#7e22ce]"
+      className="w-256 h-128 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_20px_5px_#7e22ce]"
       style={{ left: '50%', transform: 'translateX(-15%)' }}
     >
       <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">
