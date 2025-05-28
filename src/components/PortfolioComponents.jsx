@@ -1,10 +1,12 @@
 import TestItem1 from "./PortfolioItems/Item1";
 import TestItem2 from "./PortfolioItems/Item2";
+import Item3 from "./PortfolioItems/Item3";
 
 function PortfolioComponents({ darkMode, refID, receiverActive }) {
   let content;
   if (refID === 1) content = <TestItem1 />;
   else if (refID === 2) content = <TestItem2 />;
+  else if (refID === 3) content = <Item3 />;
   else content = <div>No component for this refID</div>;
 
   return (

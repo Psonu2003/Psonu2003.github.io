@@ -3,6 +3,7 @@ import './App.css';
 import Hero from './components/Hero';
 import RotatingSphere from './components/Sphere';
 import Portfolio from './components/Portfolio';
+import AboutMe from './components/AboutMe';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -10,7 +11,7 @@ function App() {
   const plateRef = useRef(null);
   const [laserHeight, setLaserHeight] = useState(0);
   const [laserBottom, setLaserBottom] = useState(0);
-  const maxLaserHeightPct = 0.61;
+  const maxLaserHeightPct = 0.75;
 
   useEffect(() => {
     if (darkMode) {
@@ -53,7 +54,7 @@ function App() {
           ref={laserRef}
           className="absolute left-10 w-1 pointer-events-none z-10"
           style={{
-            top: '100%',
+            top: '95%',
             left: 'calc(40px + 1.3rem)',
             height: `${laserHeight}px`,
             backgroundColor: laserHeight > 0 ? '#7e22ce' : 'transparent',
@@ -69,16 +70,19 @@ function App() {
           ref={plateRef}
           className="absolute w-10 h-2 bg-yellow-700 rounded-lg shadow-lg"
           style={{
-            top: `calc(100% + ${document.body.scrollHeight * maxLaserHeightPct}px)`,
+            top: `calc(95% + ${document.body.scrollHeight * maxLaserHeightPct}px)`,
             left: '42px',
           }}
         />
       </div>
 
+      
+
       <div className="fixed bottom-0 right-0 transform translate-y-10 translate-x-10 z-10 w-48 h-48 transition-colors duration-500 z-9999">
         <RotatingSphere darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
-
+      
+      <AboutMe darkMode={darkMode} />
       <Portfolio darkMode={darkMode} laserBottom={laserBottom} />
     </div>
   );

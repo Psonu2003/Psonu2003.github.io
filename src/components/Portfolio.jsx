@@ -14,6 +14,8 @@ export default function Portfolio({ darkMode, laserBottom }) {
       </h1>
       <Showcase darkMode={darkMode} laserBottom={laserBottom} refID={1} />
       <Showcase darkMode={darkMode} laserBottom={laserBottom} refID={2} />
+      <Showcase darkMode={darkMode} laserBottom={laserBottom} refID={3} />
+      {/* <Showcase darkMode={darkMode} laserBottom={laserBottom} refID={1} /> */}
       <div className="relative transition-colors duration-500 text-black dark:text-white">
           <br />
           <br />
