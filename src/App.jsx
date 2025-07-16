@@ -4,6 +4,9 @@ import Hero from './components/Hero';
 import RotatingSphere from './components/Sphere';
 import Portfolio from './components/Portfolio';
 import AboutMe from './components/AboutMe';
+import Experience from './components/Experience';
+import { Button } from './components/ui/button'; // Import Button component
+import LaserConceptModal from './components/LaserConceptModal'; // Import the new modal component
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -11,7 +14,8 @@ function App() {
   const plateRef = useRef(null);
   const [laserHeight, setLaserHeight] = useState(0);
   const [laserBottom, setLaserBottom] = useState(0);
-  const maxLaserHeightPct = 0.75;
+  const [showLaserModal, setShowLaserModal] = useState(false); // New state for modal visibility
+  const maxLaserHeightPct = 0.8;
 
   useEffect(() => {
     if (darkMode) {
@@ -30,7 +34,7 @@ function App() {
       const progress = Math.min(scrollY / height, maxLaserHeightPct);
       const targetHeight = progress * height;
       setLaserHeight(targetHeight);
-      console.log(progress);
+      // console.log(progress);
 
       if (laserRef.current) {
         const rect = laserRef.current.getBoundingClientRect();
@@ -83,7 +87,26 @@ function App() {
       </div>
       
       <AboutMe darkMode={darkMode} />
+      <Experience darkMode={darkMode} />
       <Portfolio darkMode={darkMode} laserBottom={laserBottom} />
+
+      {/* Info Button for Laser Concept */}
+      <div className="bottom-4 left-4 z-50"> {/* Positioned at bottom-left */}
+        <Button
+          variant="outline" // Using your existing outline button style
+          className="shadow-md shadow-purple-500/30 dark:shadow-purple-700/30" // Adding a subtle glow
+          onClick={() => setShowLaserModal(true)}
+        >
+          What's this laser?
+        </Button>
+      </div>
+
+      {/* Laser Concept Modal */}
+      <LaserConceptModal 
+        isOpen={showLaserModal} 
+        onClose={() => setShowLaserModal(false)} 
+        darkMode={darkMode} 
+      />
     </div>
   );
 }

@@ -24,14 +24,20 @@ const Hero = forwardRef(function Hero({ darkMode, setDarkMode }, ref) {
         {darkMode ? <Sun className="fill-white" /> : <Moon className="fill-black" />}
       </Button>
 
-      {/* Background Particles */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
-        <div className="w-[3000px] h-[3000px] rounded-full bg-[radial-gradient(circle,#7e22ce_1px,transparent_1px)] [background-size:20px_20px] opacity-30 animate-[spin_300s_linear_infinite]" />
-      </div>
+       {/* Background Particles */}
+       <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+      <div
+  className={`min-w-[200vw] min-h-[200vh] rounded-full [background-size:20px_20px] opacity-30 animate-[spin_300s_linear_infinite] ${
+    darkMode
+      ? "bg-[radial-gradient(circle,#7e22ce_1px,transparent_1px)]" // Original vibrant purple for dark mode
+      : "bg-[radial-gradient(circle,#e9b3ff_1px,transparent_1px)]" // Very light, low-contrast purple for light mode
+  }`}
+/>
+       </div>
 
       {/* Glowing Quantum Ring */}
       <motion.div
-        className="absolute z-0 w-[500px] h-[500px] rounded-full bg-purple-800 blur-3xl opacity-50"
+        className="absolute z-0 w-[500px] h-[500px] rounded-full bg-purple-300 dark:bg-purple-800 blur-3xl opacity-50"
         initial={{ scale: 0 }}
         animate={{ scale: 1.5 }}
         transition={{ duration: 2 }}
@@ -65,7 +71,7 @@ const Hero = forwardRef(function Hero({ darkMode, setDarkMode }, ref) {
           M.Sc. Quantum Computing — University of Maryland (<span className="italic">In Progress</span>)
         </p>
         <p className="text-lg dark:text-purple-300 text-purple-700 mt-2">
-          B.Sc. Physics — University of Texas at Austin
+          B.Sc. Physics — University of Texas at Austin (2025)
         </p>
         <p className="dark:text-gray-400 text-gray-700 mt-4 max-w-md mx-auto">
           I want to push the boundaries of modern day computing by exploring photonic quantum computing and quantum algorithms.
