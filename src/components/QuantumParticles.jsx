@@ -13,7 +13,7 @@ export default function QuantumParticles({ className = "" }) {
         id="tsparticles"
         init={particlesInit}
         options={{
-          fullScreen: { enable: false },  // 🚫 We disable fullscreen here so it stays inside the parent
+          fullScreen: { enable: false }, 
           background: { color: "transparent" },
           interactivity: {
             detectsOn: "canvas",

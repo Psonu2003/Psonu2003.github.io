@@ -29,8 +29,8 @@ const Hero = forwardRef(function Hero({ darkMode, setDarkMode }, ref) {
       <div
   className={`min-w-[200vw] min-h-[200vh] rounded-full [background-size:20px_20px] opacity-30 animate-[spin_300s_linear_infinite] ${
     darkMode
-      ? "bg-[radial-gradient(circle,#7e22ce_1px,transparent_1px)]" // Original vibrant purple for dark mode
-      : "bg-[radial-gradient(circle,#e9b3ff_1px,transparent_1px)]" // Very light, low-contrast purple for light mode
+      ? "bg-[radial-gradient(circle,#7e22ce_1px,transparent_1px)]" 
+      : "bg-[radial-gradient(circle,#e9b3ff_1px,transparent_1px)]" 
   }`}
 />
        </div>

@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
-// You will define your actual role data here or fetch it
 const experiences = [
   {
     id: 1,
@@ -33,7 +32,7 @@ export default function Experience({ darkMode }) {
   return (
     <section
       className={`flex flex-col items-center justify-center p-8 min-h-screen transition-colors duration-500 ${
-        darkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-800" // Adjusted background for contrast
+        darkMode ? "bg-gray-950 text-white" : "bg-gray-50 text-gray-800" 
       }`}
     >
       <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-800 dark:text-white">
@@ -60,26 +59,24 @@ function ExperienceItem({ experience, darkMode }) {
         if (entry.isIntersecting) {
           setInView(true);
           controls.start({
-            filter: 'blur(0px)', // Remove blur
-            opacity: 1, // Full opacity
+            filter: 'blur(0px)',
+            opacity: 1, 
             transition: { duration: 0.8, ease: "easeOut" }
           });
-          // Optional: Add a subtle measurement effect animation here
-          // For example, a quick scale or brightness pulse
+
         } else {
-          // Optional: Reset to initial state when out of view (for re-triggering)
           setInView(false);
           controls.start({
-            filter: 'blur(5px)', // Re-apply blur
-            opacity: 0.3, // Lower opacity
+            filter: 'blur(5px)', 
+            opacity: 0.3, 
             transition: { duration: 0.5, ease: "easeIn" }
           });
         }
       },
       {
-        root: null, // viewport
+        root: null, 
         rootMargin: '0px',
-        threshold: 0.3 // Trigger when 30% of the item is visible
+        threshold: 0.3 
       }
     );
 
@@ -102,7 +99,7 @@ function ExperienceItem({ experience, darkMode }) {
           ? 'bg-gray-800 border-purple-800'
           : 'bg-gray-100 border-purple-300'
       } transition-colors duration-500`}
-      initial={{ filter: 'blur(5px)', opacity: 0.3 }} // Initial unobserved state
+      initial={{ filter: 'blur(5px)', opacity: 0.3 }} 
       animate={controls}
     >
       <h3 className="text-2xl font-semibold mb-2 text-purple-600 dark:text-purple-400">
@@ -114,7 +111,6 @@ function ExperienceItem({ experience, darkMode }) {
       <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
         {experience.description}
       </p>
-      {/* Optional: Add a subtle particle/glow effect around the text when observed */}
     </motion.div>
   );
 }

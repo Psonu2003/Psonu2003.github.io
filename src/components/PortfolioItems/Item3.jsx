@@ -3,8 +3,7 @@ import RepoButton from "../RepoButton";
 export default function Item3() {
 return (
     <div
-        className="w-256 h-128 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_15px_5px_#7e22ce]"
-        style={{ left: '50%' }}
+        className="w-full max-w-2xl mx-auto min-h-96 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_15px_5px_#7e22ce]"
     >
         <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">
             Four-Point Probe Superconductor Amplifier
@@ -16,7 +15,7 @@ return (
         </p>
 
         {/* Embedded PDF Viewer */}
-        <div className="w-full max-w-2xl aspect-video rounded-lg overflow-hidden shadow-lg mb-4" style={{ height: "500px" }}>
+        <div className="w-full max-w-2xl rounded-lg overflow-hidden shadow-lg mb-4" style={{ height: "min(80vh, 500px)" }}> {/* Responsive height for PDF */}
             <iframe
                 src="/Final_Lab_Project.pdf"
                 title="PDF Viewer"

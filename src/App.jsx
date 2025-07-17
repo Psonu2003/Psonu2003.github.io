@@ -56,12 +56,12 @@ function App() {
         {/* Laser Beam */}
         <div
           ref={laserRef}
-          className="absolute left-10 w-1 pointer-events-none z-10"
+          className="absolute left-10 w-1 pointer-events-none z-10 transition-colors duration-500"
           style={{
             top: '95%',
             left: 'calc(40px + 1.3rem)',
             height: `${laserHeight}px`,
-            backgroundColor: laserHeight > 0 ? '#7e22ce' : 'transparent',
+            backgroundColor: laserHeight > 0 ? "#7e22ce" : 'transparent',
             borderRadius: '9999px',
             boxShadow: laserHeight > 0 ? '0 0 25px 8px #7e22ce, 0 0 50px 15px #7e22ce' : 'none',
             filter: laserHeight > 0 ? 'blur(0.5px) brightness(1.8) saturate(1.5)' : 'none',
@@ -69,10 +69,10 @@ function App() {
           }}
         />
 
-        {/* Plate at the end of the laser */}
+        {/* Laser Plate */}
         <div
           ref={plateRef}
-          className="absolute w-10 h-2 bg-yellow-700 rounded-lg shadow-lg"
+          className="absolute w-10 h-2 bg-yellow-700 rounded-lg shadow-lg transition-colors duration-500"
           style={{
             top: `calc(95% + ${document.body.scrollHeight * maxLaserHeightPct}px)`,
             left: '42px',
@@ -82,26 +82,26 @@ function App() {
 
       
 
-      <div className="fixed bottom-0 right-0 transform translate-y-10 translate-x-10 z-10 w-48 h-48 transition-colors duration-500 z-9999">
-        <RotatingSphere darkMode={darkMode} setDarkMode={setDarkMode} />
-      </div>
+        <div className="fixed bottom-0 right-0 transform translate-y-10 translate-x-10 z-10 w-32 h-32 md:w-48 md:h-48 transition-colors duration-500 z-9999"> {/* Smaller on mobile */}
+          <RotatingSphere darkMode={darkMode} setDarkMode={setDarkMode} />
+        </div>
+
       
       <AboutMe darkMode={darkMode} />
       <Experience darkMode={darkMode} />
       <Portfolio darkMode={darkMode} laserBottom={laserBottom} />
 
       {/* Info Button for Laser Concept */}
-      <div className="bottom-4 left-4 z-50"> {/* Positioned at bottom-left */}
+      <div className="bottom-4 left-4 bg-gray-50 dark:bg-gray-950 z-50 transition-colors duration-500"> {/* Positioned at bottom-left */}
         <Button
           variant="outline" // Using your existing outline button style
-          className="shadow-md shadow-purple-500/30 dark:shadow-purple-700/30" // Adding a subtle glow
+          className="shadow-md shadow-purple-500/50 dark:shadow-purple-700/50 transition-colors duration-500" // Adding a subtle glow
           onClick={() => setShowLaserModal(true)}
         >
           What's this laser?
         </Button>
       </div>
 
-      {/* Laser Concept Modal */}
       <LaserConceptModal 
         isOpen={showLaserModal} 
         onClose={() => setShowLaserModal(false)} 

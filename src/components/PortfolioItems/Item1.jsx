@@ -3,8 +3,7 @@ import RepoButton from "../RepoButton";
 export default function TestItem1() {
   return (
     <div
-      className="w-256 h-128 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_20px_5px_#7e22ce]"
-      style={{ left: '50%'}}
+      className="w-full max-w-2xl mx-auto min-h-96 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_20px_5px_#7e22ce]"
     >
       <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">
         Laser Quantum Key Distribution BB84 Protocol
@@ -24,7 +23,7 @@ export default function TestItem1() {
         <img
           src="https://www.thorlabs.com/images/tabimages/QC_Kit_Experiment_D1-1000.gif"
           alt="Thorlabs Quantum Optics Kit"
-          className="w-120 h-auto rounded-lg hover:scale-105 transition-transform duration-300"
+          className="w-full max-w-sm h-auto rounded-lg hover:scale-105 transition-transform duration-300" // Adjusted image width
         />
       </a>
 
