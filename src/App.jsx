@@ -15,7 +15,7 @@ function App() {
   const [laserHeight, setLaserHeight] = useState(0);
   const [laserBottom, setLaserBottom] = useState(0);
   const [showLaserModal, setShowLaserModal] = useState(false); // New state for modal visibility
-  const maxLaserHeightPct = 0.8;
+
 
   useEffect(() => {
     if (darkMode) {
@@ -29,11 +29,11 @@ function App() {
     let animationFrameId;
 
     const updateLaserHeight = () => {
-      const height = document.body.scrollHeight;
-      const scrollY = window.scrollY;
-      const progress = Math.min(scrollY / height, maxLaserHeightPct);
-      const targetHeight = progress * height;
-      setLaserHeight(targetHeight);
+      const height = document.documentElement.scrollHeight - window.innerHeight; // Max window scroll height
+      const maxHeight = height/16 - 37*0.25; // Adjusted for the plate height (37px converted to rem)
+      const scrollY = window.scrollY/16;
+      const progress = Math.min(scrollY, maxHeight);
+      setLaserHeight(progress);
       // console.log(progress);
 
       if (laserRef.current) {
@@ -50,17 +50,17 @@ function App() {
 
   return (
     <div className={`relative h-full w-full transition-colors duration-500 ${darkMode ? 'dark bg-black text-white' : 'bg-white text-black'}`}>
-      <div className="relative">
+      {/* <div className="relative"> */}
         <Hero darkMode={darkMode} setDarkMode={setDarkMode} />
 
+
+      <div className='relative'>
         {/* Laser Beam */}
         <div
           ref={laserRef}
-          className="absolute left-10 w-1 pointer-events-none z-10 transition-colors duration-500"
+          className="absolute -top-10 left-16 left-10 w-1 pointer-events-none z-10 transition-colors duration-500"
           style={{
-            top: '95%',
-            left: 'calc(40px + 1.3rem)',
-            height: `${laserHeight}px`,
+            height: `${laserHeight}rem`,
             backgroundColor: laserHeight > 0 ? "#7e22ce" : 'transparent',
             borderRadius: '9999px',
             boxShadow: laserHeight > 0 ? '0 0 25px 8px #7e22ce, 0 0 50px 15px #7e22ce' : 'none',
@@ -69,16 +69,10 @@ function App() {
           }}
         />
 
-        {/* Laser Plate */}
-        <div
-          ref={plateRef}
-          className="absolute w-10 h-2 bg-yellow-700 rounded-lg shadow-lg transition-colors duration-500"
-          style={{
-            top: `calc(95% + ${document.body.scrollHeight * maxLaserHeightPct}px)`,
-            left: '42px',
-          }}
-        />
+       
       </div>
+
+      
 
       
 
@@ -90,11 +84,17 @@ function App() {
       <AboutMe darkMode={darkMode} />
       <Experience darkMode={darkMode} />
       <Portfolio darkMode={darkMode} laserBottom={laserBottom} />
+      
+      {/* Laser Plate */}
+      <div
+      ref={plateRef}
+      className="relative bottom-40 left-11.5 w-10 h-2 bg-yellow-700 rounded-lg shadow-lg transition-colors duration-500" 
+      />
 
       {/* Info Button for Laser Concept */}
-      <div className="bottom-4 left-4 bg-gray-50 dark:bg-gray-950 z-50 transition-colors duration-500"> {/* Positioned at bottom-left */}
+      <div className="relative bottom-4 left-4 bg-gray-50 dark:bg-gray-950 z-50 transition-colors duration-500"> {/* Positioned at bottom-left */}
         <Button
-          variant="outline" // Using your existing outline button style
+          variant="outline" 
           className="shadow-md shadow-purple-500/50 dark:shadow-purple-700/50 transition-colors duration-500" // Adding a subtle glow
           onClick={() => setShowLaserModal(true)}
         >

@@ -74,10 +74,22 @@ useEffect(() => {
   }, [beamTriggered, absLaserBottom]);
 
   return (
-    <div className="relative w-full py-40 flex items-center justify-start pl-9.5 transition-colors duration-500">
+    // <div className="relative w-full py-40 flex items-center justify-start pl-9.5 transition-colors duration-500">
+    <div className="relative w-full flex items-center justify-center transition-colors duration-500">
       {/* Beamsplitter Square */}
-      <div ref={splitterRef} className="flex flex-col items-center z-999">
+      {/* <div ref={splitterRef} className="flex flex-col items-center z-999">
         <BeamSplitter darkMode={darkMode} />
+      </div> */}
+      <div
+        ref={splitterRef} // Attach ref for position detection
+        className="absolute z-999 w-12 h-12 rounded-md shadow-lg top-1/2 -translate-y-1/2" // Centered vertically
+        style={{
+          // Position it to the left, centered on where the horizontal beam starts.
+          // Calculation: (mainLaserHorizontalStart) - (half of splitterWidth) + (0.5px for 1px laser centering)
+          left: 'calc(40px)',
+        }}
+      >
+        <BeamSplitter darkMode={darkMode} /> {/* Render the BeamSplitter component */}
       </div>
 
       {/* Horizontal Beam */}
@@ -95,7 +107,7 @@ useEffect(() => {
 
 
       {/* Receiver + Content */}
-      <div className="flex items-center gap-4 ml-[calc(10px+320px)] z-999"
+      <div className="flex items-center gap-4 py-12  z-999"
         style={{
           top: 'calc(50% - 0.25rem)',
           left: `calc(40px + 3rem + ${window.innerWidth * 0.035}px)`,
