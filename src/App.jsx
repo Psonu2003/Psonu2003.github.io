@@ -15,6 +15,9 @@ function App() {
   const [laserHeight, setLaserHeight] = useState(0);
   const [laserBottom, setLaserBottom] = useState(0);
   const [showLaserModal, setShowLaserModal] = useState(false); // New state for modal visibility
+  const isMobile = window.innerWidth < 768;
+  const plateHeight = isMobile ? '17.75rem' : '10rem';
+  const plateOffsetPx = isMobile ? 285 : 160;
 
 
   useEffect(() => {
@@ -58,7 +61,7 @@ function App() {
         {/* Laser Beam */}
         <div
           ref={laserRef}
-          className="absolute -top-10 left-16 left-10 w-1 pointer-events-none z-10 transition-colors duration-500"
+          className="absolute -top-10 left-5 md:left-16 w-1 pointer-events-none z-10 transition-colors duration-500"
           style={{
             height: `${laserHeight}rem`,
             backgroundColor: laserHeight > 0 ? "#7e22ce" : 'transparent',
@@ -86,9 +89,16 @@ function App() {
       <Portfolio darkMode={darkMode} laserBottom={laserBottom} />
       
       {/* Laser Plate */}
+      {/* <div
+      ref={plateRef}
+      className="relative bottom-71 md:bottom-40 left-2 md:left-11.5 w-7 md:w-10 h-2 bg-yellow-700 rounded-lg shadow-lg transition-colors duration-500" 
+      /> */}
       <div
       ref={plateRef}
-      className="relative bottom-40 left-11.5 w-10 h-2 bg-yellow-700 rounded-lg shadow-lg transition-colors duration-500" 
+      className="relative left-2 md:left-11.5 w-7 md:w-10 h-2 bg-yellow-700 rounded-lg shadow-lg transition-colors duration-500"
+      style={{
+        bottom: `${plateOffsetPx}px`, 
+      }}
       />
 
       {/* Info Button for Laser Concept */}

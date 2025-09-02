@@ -39,7 +39,7 @@ export default function Experience({ darkMode }) {
         Experience
       </h2>
 
-      <div className="w-full max-w-4xl space-y-16">
+      <div className="w-full max-w-2xs text-xs md:text-lg md:max-w-4xl space-y-16">
         {experiences.map((experience) => (
           <ExperienceItem key={experience.id} experience={experience} darkMode={darkMode} />
         ))}

@@ -3,13 +3,13 @@ import RepoButton from "../RepoButton";
 export default function TestItem1() {
   return (
     <div
-      className="w-full max-w-2xl mx-auto min-h-96 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_20px_5px_#7e22ce]"
+      className="w-full max-w-3xs md:max-w-2xl mx-auto min-h-96 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_20px_5px_#7e22ce]"
     >
-      <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">
+      <h1 className="text-lg md:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">
         Laser Quantum Key Distribution BB84 Protocol
       </h1>
 
-      <p className="text-gray-600 dark:text-gray-400 mb-4 text-center">
+      <p className="text-gray-600 text-sm md:text-2xl dark:text-gray-400 mb-4 text-center">
         A proof-of-concept physical implementation of the QKD BB84 protocol using lasers, half-wave plates, laser detectors, and polarizing beamsplitters. It classically demonstrates the BB84 protocol and its strength in identifying eavesdroppers.
       </p>
 

@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import BeamSplitter from './BeamSplitter';
 import Receiver from './Receiver';
 import PortfolioComponents from './PortfolioComponents';
+import useMediaQuery from '../hooks/useMediaQuery';
 
 export default function Showcase({ darkMode, laserBottom, refID }) {
   const splitterRef = useRef(null);
@@ -10,6 +11,9 @@ export default function Showcase({ darkMode, laserBottom, refID }) {
   const [laserLength, setLaserLength] = useState(0);
   const [absSplitterY, setAbsSplitterY] = useState(0);
   const [absLaserBottom, setAbsLaserBottom] = useState(0);
+  const [maxLaserLength, setmaxLaserLength] = useState(0.035); // Maximum length in percentage of viewport width
+  const isMd = useMediaQuery('(min-width: 768px)');
+
 
   // Detect if vertical beam hits the BeamSplitter square
   useEffect(() => {
@@ -51,7 +55,7 @@ useEffect(() => {
     let animationFrameId;
 
     const updateLaserLength = () => {
-        const maxLength = 0.035; // Maximum length in percentage
+        const maxLength = maxLaserLength; // Maximum length in percentage
         const distance = Math.max(0, absLaserBottom - absSplitterY);
         const progress = Math.min(distance / (window.innerWidth * maxLength), 1);
         const targetLength = progress * window.innerWidth * maxLength;
@@ -82,22 +86,21 @@ useEffect(() => {
       </div> */}
       <div
         ref={splitterRef} // Attach ref for position detection
-        className="absolute z-999 w-12 h-12 rounded-md shadow-lg top-1/2 -translate-y-1/2" // Centered vertically
-        style={{
-          // Position it to the left, centered on where the horizontal beam starts.
-          // Calculation: (mainLaserHorizontalStart) - (half of splitterWidth) + (0.5px for 1px laser centering)
-          left: 'calc(40px)',
-        }}
+        className="absolute z-999 left-2.5 md:left-10.5 w-6 h-6 md:w-12 md:h-12 rounded-md shadow-lg top-1/2 -translate-y-1/2" // Centered vertically
+        // style={{
+        //   // Position it to the left, centered on where the horizontal beam starts.
+        //   // Calculation: (mainLaserHorizontalStart) - (half of splitterWidth) + (0.5px for 1px laser centering)
+        //   left: 'calc(40px)',
+        // }}
       >
         <BeamSplitter darkMode={darkMode} /> {/* Render the BeamSplitter component */}
       </div>
 
       {/* Horizontal Beam */}
       <div
-        className="absolute h-1 bg-purple-600 pointer-events-none z-9"
+        className="absolute h-1 left-6.5 md:left-16.5 bg-purple-600 pointer-events-none z-9"
         style={{
           top: 'calc(50% - 0.25rem)',
-          left: 'calc(40px + 1.5rem)',
           width: `${laserLength}px`,
           boxShadow: laserLength > 0 ? '0 0 20px 5px #7e22ce, 0 0 50px 15px #7e22ce' : 'none',
           borderRadius: '9999px',
@@ -114,7 +117,9 @@ useEffect(() => {
         }}>
         <div className='absolute'
           style={{
-            left: `calc(40px + 1.25rem + ${window.innerWidth * 0.035}px)`,
+            left: isMd
+              ? `calc(4.125rem + ${window.innerWidth * 0.035}px)`
+              : `calc(1.625rem + ${window.innerWidth * 0.035}px)`
           }}>
             <Receiver activated={receiverActive} />
         </div>

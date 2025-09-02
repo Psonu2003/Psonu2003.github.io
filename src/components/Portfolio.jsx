@@ -9,24 +9,13 @@ export default function Portfolio({ darkMode, laserBottom }) {
       </div> */}
 
       {/* Showcase Sections */}
-      <h1 className="text-4xl font-bold text-gray-800 dark:text-white text-center py-6 transition-colors duration-500">
+      <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white text-center py-6 transition-colors duration-500">
         Portfolio
       </h1>
       <Showcase darkMode={darkMode} laserBottom={laserBottom} refID={1} />
       <Showcase darkMode={darkMode} laserBottom={laserBottom} refID={2} />
       <Showcase darkMode={darkMode} laserBottom={laserBottom} refID={3} />
       {/* <Showcase darkMode={darkMode} laserBottom={laserBottom} refID={1} /> */}
-      <div className="relative transition-colors duration-500 text-black dark:text-white">
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-      </div>
     </div>
   );
 }

@@ -3,13 +3,13 @@ import RepoButton from "../RepoButton";
 export default function TestItem2() {
   return (
     <div
-      className="w-full max-w-2xl mx-auto min-h-96 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_15px_5px_#7e22ce]"
+      className="w-full max-w-3xs md:max-w-2xl mx-auto min-h-96 flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 transition-colors duration-500 p-4 rounded-lg shadow-[0_0_15px_5px_#7e22ce]"
     >
-      <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">
+      <h1 className="text-lg md:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">
         Perfectly Elastic Collision Simulator
       </h1>
 
-      <p className="text-gray-600 dark:text-gray-400 mb-4 text-center">
+      <p className="text-gray-600 text-sm md:text-2xl dark:text-gray-400 mb-4 text-center">
         This animation is a result of a perfectly elastic collision between two boxes. Due to their ratio, the number of collisions produce the digits of pi.
       </p>
 
@@ -26,7 +26,7 @@ export default function TestItem2() {
       <p className="text-sm text-center text-gray-500 dark:text-gray-400 mb-4">
         This animation shows how the ratio of the two boxes leads to a series of collisions that approximate the digits of pi.
       </p>
-      
+
       {/* GitHub Button */}
       <RepoButton repoUrl="https://github.com/Psonu2003/CollisionAnimation" />
     </div>
